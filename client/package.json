@@ -1,5 +1,5 @@
 {
-  "name": "hogwarts",
+  "name": "hogwarts-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
