@@ -10,7 +10,7 @@ const House = ({blazonName, blazonImage, blazonColor, secondaryBlazonColor}) => 
           <div>
             <span className="harryFontFamily" style={{ color: secondaryBlazonColor }}>{blazonName}</span>
             <br/>
-            <img src={blazonImage} className="" alt="blazon" />
+            <img src={blazonImage} alt="blazon" />
           </div>
         </div>
         <div className="column">

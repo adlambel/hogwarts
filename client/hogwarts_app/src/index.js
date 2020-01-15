@@ -6,12 +6,22 @@ import rootReducer from './reducers'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
 
 const store = createStore(rootReducer)
 
+const theme = createMuiTheme({
+    palette: {
+      primary: teal,
+    },
+});
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <ThemeProvider theme={theme}>
+            <App />
+      </ThemeProvider>
     </Provider>
     , document.getElementById('root'));
 

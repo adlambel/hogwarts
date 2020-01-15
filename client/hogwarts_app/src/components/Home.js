@@ -2,10 +2,10 @@ import React from 'react'
 
 import House from './House.js'
 
-import blazonGryffondor from '../images/Blason_de_Gryffondor.png'
-import blazonPoufsouffle from '../images/Blason_de_Poufsouffle.png'
-import blazonSerdaigle from '../images/Blason_de_Serdaigle.png'
-import blazonSerpentard from '../images/Blason_de_Serpentard.png'
+import blazonGryffondor from '../images/blazons/Blason_de_Gryffondor.png'
+import blazonPoufsouffle from '../images/blazons/Blason_de_Poufsouffle.png'
+import blazonSerdaigle from '../images/blazons/Blason_de_Serdaigle.png'
+import blazonSerpentard from '../images/blazons/Blason_de_Serpentard.png'
 
 
 const Home = () => {
