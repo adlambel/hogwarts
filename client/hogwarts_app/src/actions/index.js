@@ -1,9 +1,5 @@
 
-export const addSong = text => ({
-  type: 'ADD_SONG',
+export const selecteBody = text => ({
+  type: 'CHANGE_BODY',
   text
-})
-export const removeSong = song => ({
-  type: 'REMOVE_SONG',
-  song
 })

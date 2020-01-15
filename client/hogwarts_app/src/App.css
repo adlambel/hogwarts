@@ -66,6 +66,12 @@
   color: white;
 }
 
+.header .button {
+  font-size: 1vw;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
 .home {
   width: 100vw;
   height: 85vh;
@@ -88,4 +94,26 @@
 .houseBlazon {
   width: 70%;
   margin: auto;
+}
+
+.members {
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.studentsTable {
+  float: left;
+}
+
+.professorsTable {
+  float: right;
+}
+
+.addPoints {
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
 }

@@ -1,24 +1,39 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './reducers'
-import logo from './logo.svg';
+import { connect } from 'react-redux'
 import './App.css';
 
 import Header from './components/Header.js';
 import Home from './components/Home.js';
+import AddPoints from './components/AddPoints.js';
+import Members from './components/Members.js';
 
-const store = createStore(rootReducer)
 
-function App() {
+function App({ selectedBody }) {
+
+  let bodySelector = (bodyName) => {
+    if(bodyName === "Add points"){
+      return <AddPoints />
+    }
+    if(bodyName === "Members"){
+      return <Members />
+    }
+    else{
+      return <Home />
+    }
+  }
+
   return (
     <div className="App">
-      <Provider store={store}>
-        <Header />
-        <Home />
-      </Provider>
+        <Header selectedBody={selectedBody} />
+        {bodySelector(selectedBody.firstBody)}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  selectedBody: state.selectedBody
+})
+
+export default connect(
+    mapStateToProps
+  )(App)
