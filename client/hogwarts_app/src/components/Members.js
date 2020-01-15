@@ -7,8 +7,8 @@ const Members = () => {
 
   return (
     <div className="members">
-        <Table className="studentsTable" />
-        <Table className="professorsTable" />
+        <Table className="studentsTable table MuiPaper-elevation0"/>
+        <Table className="professorsTable table MuiPaper-elevation0" />
     </div>
   )
 }

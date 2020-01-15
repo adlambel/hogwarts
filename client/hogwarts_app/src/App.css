@@ -72,7 +72,7 @@
 }
 
 .header {
-  width: 100vw;
+  width: 100%;
   height: 15vh;
   font-size: 3vw;
   background-color: var(--color-primary);
@@ -86,8 +86,8 @@
 .headerButtonsContainer {
   width: 100%;
   text-align: right;
-  padding-right: 3vw;
-  padding-bottom: 2vh;
+  /* padding-right: 3vw;
+  padding-bottom: 2vh; */
   position: absolute;
   z-index: 4;
 }
@@ -129,10 +129,14 @@
 }
 
 .members {
-  width: 100vw;
+  width: 100%;
   height: 85vh;
   display: flex;
   flex-direction: row;
+}
+
+.table {
+  margin: 3vw;
 }
 
 .studentsTable {
