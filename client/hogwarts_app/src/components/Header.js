@@ -8,8 +8,9 @@ import { selecteBody } from '../actions'
 const Header = ({ dispatch, selectedBody }) => {
 
   return (
-    <div  className="header">
-        <span>{ selectedBody.firstBody }</span>
+    <div className="header center">
+      <div className="heardeName harryFontFamily center">{ selectedBody.firstBody }</div>
+      <div className="headerButtonsContainer">
         <Fab className="button" variant="extended" onClick={() => { dispatch(selecteBody(selectedBody.secondBody))}}>
           { selectedBody.secondBody }
           <NavigateNextIcon />
@@ -18,6 +19,7 @@ const Header = ({ dispatch, selectedBody }) => {
           { selectedBody.thirdBody }
           <NavigateNextIcon />
         </Fab>
+      </div>
     </div>
   )
 }

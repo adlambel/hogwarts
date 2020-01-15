@@ -50,24 +50,51 @@
 	src: url("harry_p/HARRYP__.TTF");
 }
 
-.testPolice {
+.harryFontFamily {
   font-family: "harryPotter";
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 .header {
   width: 100vw;
   height: 15vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 3vw;
-  font-family: "harryPotter";
   background-color: var(--color-primary);
   color: white;
 }
 
+.heardeName {
+  width: 100%;
+}
+
+.headerButtonsContainer {
+  width: 100%;
+  text-align: right;
+  padding-right: 3vw;
+  padding-bottom: 2vh;
+  position: absolute;
+  z-index: 4;
+}
+
 .header .button {
   font-size: 1vw;
+  margin-right: 1%;
   color: var(--color-primary);
   font-weight: bold;
 }
@@ -75,25 +102,30 @@
 .home {
   width: 100vw;
   height: 85vh;
-  display: flex;
-  flex-direction: row;
-  font-family: "harryPotter";
 }
 
 .house {
   width: 25%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   font-size: 3vw;
   color: white;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
-  font-family: "harryPotter";
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.8));
 }
 
 .houseBlazon {
-  width: 70%;
-  margin: auto;
+  height: 60vh;
+  width: 20vw;
+}
+
+.pointsNumber {
+  font-size: 5vw;
+  margin-top: 50px;
+}
+
+.points {
+  font-size: 2vw;
+  font-weight: bold;
+  opacity: 0.2;
 }
 
 .members {
