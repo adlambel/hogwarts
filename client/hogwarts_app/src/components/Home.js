@@ -12,10 +12,10 @@ const Home = () => {
 
   return (
     <div  className="home">
-        <House blazonName="Gryffondor" blazonImage={blazonSerdaigle} blazonColor="#C10404" />
-        <House blazonName="Poufsouffle" blazonImage={blazonSerdaigle} blazonColor="#DEB916" />
+        <House blazonName="Gryffondor" blazonImage={blazonGryffondor} blazonColor="#C10404" />
+        <House blazonName="Poufsouffle" blazonImage={blazonPoufsouffle} blazonColor="#DEB916" />
         <House blazonName="Serdaigle" blazonImage={blazonSerdaigle} blazonColor="#0F85C1" />
-        <House blazonName="Serpentard" blazonImage={blazonSerdaigle} blazonColor="#10800D" />
+        <House blazonName="Serpentard" blazonImage={blazonSerpentard} blazonColor="#10800D" />
     </div>
   )
 }
