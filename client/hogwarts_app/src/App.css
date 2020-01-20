@@ -157,3 +157,19 @@ td {
   position: absolute;
   z-index: 4;
 }
+
+.tableAddPoints {
+  width: 50vw;
+  text-align: center;
+  font-size: 1vw;
+  color: var(--color-primary);
+}
+
+.formularTitle {
+  font-size: 3vw;
+  margin: 20px;
+  padding-top: 30px;
+}
+
+.formularInput {
+}

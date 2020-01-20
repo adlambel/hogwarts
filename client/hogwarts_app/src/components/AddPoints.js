@@ -1,13 +1,15 @@
 import React from 'react'
 
-import Table from './Table.js'
+import TablePoints from './TablePoints.js'
+import FormularPoints from './FormularPoints.js'
 
 
 const AddPoints = () => {
 
   return (
     <div className="addPoints">
-        <Table />
+        <TablePoints/>
+        <FormularPoints/>
     </div>
   )
 }
