@@ -1,9 +1,12 @@
-class TestData {
-  constructor(id, name, age) {
+class Log {
+  constructor(id, house, professor, isAdd, value) {
     this.id = id
-    this.name = name
-    this.age = age
+    this.house = house,
+    this.professor = professor,
+    this.date = new Date(),
+    this.isAdd = isAdd,
+    this.value = value
   }
 }
 
-export default TestData
+export default Log

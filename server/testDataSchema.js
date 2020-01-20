@@ -1,21 +1,33 @@
-import TestData from './testData'
+import Log from './testData'
 import { EntitySchema } from 'typeorm'
 
 export const testDataSchema = new EntitySchema({
-  tableName: 'table_tests',
-  name: 'testData',
-  target: TestData,
+  tableName: 'house_logs',
+  name: 'log',
+  target: Log,
   columns: {
     id: {
       primary: true,
       generated: true,
       type: 'int'
     },
-    name: {
+    house: {
       type: 'varchar',
       nullable: false
     },
-    age: {
+    professor: {
+      type: 'int',
+      nullable: false
+    },
+    date: {
+      type: 'datetime',
+      nullable: false
+    },
+    isAdd: {
+      type: 'boolean',
+      nullable: false
+    },
+    value: {
       type: 'int',
       nullable: false
     }
