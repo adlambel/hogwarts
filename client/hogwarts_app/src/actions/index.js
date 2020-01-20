@@ -11,7 +11,7 @@ export const addStudent = (house, firstName, lastName, gender) => ({
   gender
 })
 
-export const addStudent = (house, firstName, lastName, gender) => ({
+export const removeStudent = (house, firstName, lastName, gender) => ({
   type: 'REMOVE_STUDENT',
   house,
   firstName,
