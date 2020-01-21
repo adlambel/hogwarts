@@ -1,6 +1,10 @@
 import { createConnection } from 'typeorm'
 import Professor from '../src/models/professor'
+import Student from '../src/models/student'
+import Log from '../src/models/log'
 import { professorSchema } from '../src/models/schema/professorSchema'
+import { logSchema } from '../src/models/schema/logSchema'
+import { studentSchema } from '../src/models/schema/studentSchema'
 
 class TypeOrmDal {
   async connect() {
@@ -12,7 +16,7 @@ class TypeOrmDal {
         username: 'root',
         password: 'root',
         database: 'db_tests',
-        entities: [professorSchema]
+        entities: [professorSchema, logSchema, studentSchema]
       })
     } catch (err) {
       console.error('Unable to connect')
@@ -20,9 +24,8 @@ class TypeOrmDal {
     }
   }
 
-  async getData() {
+  async getProfessor() {
     const connection = await this.connect()
-
     try {
       const dataRepository = connection.getRepository(Professor)
 
@@ -35,13 +38,24 @@ class TypeOrmDal {
     }
   }
 
-  async add(name, age) {
+  async getStudent() {
     const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Student)
+      return await dataRepository.find()
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
 
+  async addProfessor(name, age) {
+    const connection = await this.connect()
     try {
       const dataRepository = connection.getRepository(Professor)
       const newData = new Professor(null, name, age)
-
       await dataRepository.save(newData)
       return newData
     } catch (err) {
@@ -51,6 +65,64 @@ class TypeOrmDal {
       await connection.close()
     }
   }
+
+  async removeProfessor(id) {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Professor)
+      const res = await dataRepository.delete(id)
+      return res
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
+
+  async addStudent(house, name, age) {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Student)
+      const newData = new Student(null, house, name, age)
+      await dataRepository.save(newData)
+      return newData
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
+
+  async removeStudent(id) {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Student)
+      const res = await dataRepository.delete(id)
+      return res
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
+
+  async getScores() {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Log)
+      // TODO
+      return await dataRepository.find()
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
+  
 }
 
 export default TypeOrmDal

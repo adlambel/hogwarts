@@ -18,7 +18,7 @@ export const studentSchema = new EntitySchema({
     },
     gender: {
       type: 'char',
-      nullable: falses
+      nullable: false
     },
     house: {
       type: 'varchar',
