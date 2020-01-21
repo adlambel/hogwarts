@@ -18,7 +18,7 @@ export const professorSchema = new EntitySchema({
     },
     gender: {
       type: 'char',
-      nullable: falses
+      nullable: false
     }
     
   }

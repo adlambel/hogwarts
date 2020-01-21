@@ -1,6 +1,6 @@
 import { createConnection } from 'typeorm'
-import TestData from '../src/models/log'
-import { testDataSchema } from '../src/models/schema/logSchema'
+import Professor from '../src/models/professor'
+import { professorSchema } from '../src/models/schema/professorSchema'
 
 class TypeOrmDal {
   async connect() {
@@ -12,7 +12,7 @@ class TypeOrmDal {
         username: 'root',
         password: 'root',
         database: 'db_tests',
-        entities: [testDataSchema]
+        entities: [professorSchema]
       })
     } catch (err) {
       console.error('Unable to connect')
@@ -24,7 +24,7 @@ class TypeOrmDal {
     const connection = await this.connect()
 
     try {
-      const dataRepository = connection.getRepository(TestData)
+      const dataRepository = connection.getRepository(Professor)
 
       return await dataRepository.find()
     } catch (err) {
@@ -39,8 +39,8 @@ class TypeOrmDal {
     const connection = await this.connect()
 
     try {
-      const dataRepository = connection.getRepository(TestData)
-      const newData = new TestData(null, name, age)
+      const dataRepository = connection.getRepository(Professor)
+      const newData = new Professor(null, name, age)
 
       await dataRepository.save(newData)
       return newData
