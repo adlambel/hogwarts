@@ -1,4 +1,4 @@
-import Student from './student'
+import Student from '../student'
 import { EntitySchema } from 'typeorm'
 
 export const studentSchema = new EntitySchema({

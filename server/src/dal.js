@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise'
-import TestData from './testData'
+import Log from '../models/log';
 
 class Dal {
   async connect() {

@@ -1,8 +1,8 @@
-import Log from './testData'
+import Log from '../log'
 import { EntitySchema } from 'typeorm'
 
-export const testDataSchema = new EntitySchema({
-  tableName: 'house_logs',
+export const logSchema = new EntitySchema({
+  tableName: 'logs',
   name: 'log',
   target: Log,
   columns: {
