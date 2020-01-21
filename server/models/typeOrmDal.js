@@ -1,6 +1,6 @@
 import { createConnection } from 'typeorm'
-import TestData from './testData'
-import { testDataSchema } from './testDataSchema'
+import TestData from './log'
+import { testDataSchema } from './logSchema'
 
 class TypeOrmDal {
   async connect() {

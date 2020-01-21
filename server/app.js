@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import Dal from './typeOrmDal'
+import Dal from './models/typeOrmDal'
 
 const app = express()
 
