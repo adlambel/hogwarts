@@ -1,7 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { removePoints } from '../actions'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+
 import iconGryffondor from '../images/icons/Icone_de_Gryffondor.png'
 import iconPoufsouffle from '../images/icons/Icone_de_Poufsouffle.png'
 import iconSerdaigle from '../images/icons/Icone_de_Serdaigle.png'
@@ -27,7 +30,7 @@ const houses = [
     },
   ];
 
-  const professors = [
+  const professorst = [
     {
       firstName: 'firstName',
       lastName: 'lastName',
@@ -61,20 +64,21 @@ const useStyles = makeStyles(theme => ({
   
 
 
-const FormularPoints = () => {
-    const classes = useStyles();
-    const [house, setHouse] = React.useState('');
-    const [professor, setProfessor] = React.useState('');
-    const [points, setPoints] = React.useState('');
+const FormularPoints = ({ dispatch, professors }) => {
+    const classes = useStyles()
+    const [house, setHouse] = React.useState('')
+    const [professor, setProfessor] = React.useState('')
+    const [points, setPoints] = React.useState('')
 
     const handleChangeHouse = event => {
-        setHouse(event.target.value);
+        setHouse(event.target.value)
     };
     const handleChangeProfessor = event => {
-        setProfessor(event.target.value);
+        setProfessor(event.target.value)
+        console.log(event.target.value)
     };
     const handleChangePoints= event => {
-        setPoints(event.target.value);
+        setPoints(event.target.value)
     };
   
     return (
@@ -110,7 +114,7 @@ const FormularPoints = () => {
                         helperText="Please select a professor"
                         variant="outlined"
                         >
-                        {professors.map(option => (
+                        {professorst.map(option => (
                             <MenuItem key={option.value} value={option.value}>
                             {option.firstName} {option.lastName}
                             </MenuItem>
@@ -134,4 +138,11 @@ const FormularPoints = () => {
     )
 }
 
-export default FormularPoints
+const mapStateToProps = state => ({
+  professors: state.professors
+})
+
+export default connect(
+  mapStateToProps
+)(FormularPoints)
+

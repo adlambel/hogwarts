@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
-import selectedSongs from './selectedSongs'
 import selectedBody from './selectedBody'
 import students from './students'
+import professors from './professors'
+import points from './points'
 export default combineReducers({
-  selectedSongs,
   students,
+  professors,
+  points,
   selectedBody
 })

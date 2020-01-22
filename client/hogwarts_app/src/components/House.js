@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const House = ({blazonName, blazonImage, blazonColor, secondaryBlazonColor}) => {
+const House = ({blazonName, blazonImage, blazonColor, secondaryBlazonColor, housePoints}) => {
 
   return (
     <div  className="house center" style={{ backgroundColor: blazonColor }}>
@@ -14,7 +14,7 @@ const House = ({blazonName, blazonImage, blazonColor, secondaryBlazonColor}) => 
           </div>
         </div>
         <div className="column">
-          <span className="harryFontFamily pointsNumber">...26...</span>
+          <span className="harryFontFamily pointsNumber">{housePoints}</span>
           <span className="points">POINTS</span>
         </div>
       </div>
