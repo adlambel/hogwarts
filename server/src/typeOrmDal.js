@@ -28,7 +28,6 @@ class TypeOrmDal {
     const connection = await this.connect()
     try {
       const dataRepository = connection.getRepository(Professor)
-
       return await dataRepository.find()
     } catch (err) {
       console.error(err.message)

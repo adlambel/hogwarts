@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { removePoints } from '../actions'
 
 import ClearIcon from '@material-ui/icons/Clear'
 import iconGryffondor from '../images/icons/Icone_de_Gryffondor.png'
@@ -7,45 +9,40 @@ import iconSerdaigle from '../images/icons/Icone_de_Serdaigle.png'
 import iconSerpentard from '../images/icons/Icone_de_Serpentard.png'
 
 
-const TablePoints = () => {
+const TablePoints = ({ dispatch, points }) => {
 
     return (
         <div className="tableStudentsProfessors column">
             <div className="harryFontFamily">ADD POINTS</div>
             <table>
-                <tr>
-                    <th>House</th>
-                    <th>Professor</th>
-                    <th>Points</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td><img src={iconGryffondor} className="houseIcon" alt="icon" /></td>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td><ClearIcon style={{color: "#707070", fontSize: "40px"}}/></td>
-                </tr>
-                <tr>
-                    <td><img src={iconPoufsouffle} className="houseIcon" alt="icon" /></td>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td><ClearIcon style={{color: "#707070", fontSize: "40px"}}/></td>
-                </tr>
-                <tr>
-                    <td><img src={iconSerdaigle} className="houseIcon" alt="icon" /></td>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td><ClearIcon style={{color: "#707070", fontSize: "40px"}}/></td>
-                </tr>
-                <tr>
-                    <td><img src={iconSerpentard} className="houseIcon" alt="icon" /></td>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td><ClearIcon style={{color: "#707070", fontSize: "40px"}}/></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>House</th>
+                        <th>Professor</th>
+                        <th>Points</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {points.map(point => (
+                        <tr key={point.id} >
+                            <td><img src={iconGryffondor} className="houseIcon" alt="icon" /></td>
+                            <td>{point.professor}</td>
+                            <td>{point.points}</td>
+                            <td><ClearIcon style={{color: "#707070", fontSize: "40px"}} onClick={() => { dispatch(removePoints(point.id))}}/></td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
     )
 }
 
-export default TablePoints
+const mapStateToProps = state => ({
+    points: state.points
+})
+
+export default connect(
+    mapStateToProps
+)(TablePoints)
+

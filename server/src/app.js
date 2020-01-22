@@ -1,4 +1,6 @@
 import express from 'express'
+import fs from 'fs'
+import path from 'path'
 import bodyParser from 'body-parser'
 import Dal from './typeOrmDal'
 
@@ -16,14 +18,10 @@ app.use(function(_req, res, next) {
 })
 
 app.get('/', async (_, res) => {
-  const dal = new Dal()
-  const data = await dal.getData()
-
-  res
-    .status(200)
-    .set('Content-Type', 'application/json')
-    .json(data)
-})
+  fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
+    // console.log(data);
+  })
+});
 
 app.get('/professor', async (_, res) => {
   const dal = new Dal()

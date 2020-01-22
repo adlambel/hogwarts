@@ -1,7 +1,7 @@
 import React from 'react'
 
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import Table from './Table.js'
+//import Table from './Table.js'
 import TableStudents from './TableStudents.js'
 import TableProfessors from './TableProfessors.js'
 
