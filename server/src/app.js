@@ -41,20 +41,20 @@ app.get('/student', async (_, res) => {
     .json(data)
 })
 
-app.post('/professor/:name/:age', async (req, res) => {
-  const { name, age } = req.params
+app.post('/professor/:name/:gender', async (req, res) => {
+  const { name, gender } = req.params
   const dal = new Dal()
-  const newData = await dal.addProfessor(name, parseInt(age))
+  const newData = await dal.addProfessor(name, parseInt(gender))
   res
     .status(200)
     .set('Content-Type', 'application/json')
     .json(newData)
 })
 
-app.post('/student/:house/:name/:age', async (req, res) => {
-  const { name, age } = req.params
+app.post('/student/:house/:name/:gender', async (req, res) => {
+  const { name, gender } = req.params
   const dal = new Dal()
-  const newData = await dal.addStudent(house, name, parseInt(age))
+  const newData = await dal.addStudent(house, name, parseInt(gender))
   res
     .status(200)
     .set('Content-Type', 'application/json')
