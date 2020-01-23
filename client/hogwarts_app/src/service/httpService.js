@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 function getProfessors() {
-    axios.get('/professor')
+    return axios.get('/professor')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -16,7 +16,7 @@ function getProfessors() {
 }
 
 function getStudents() {
-    axios.get('/student')
+    return axios.get('/student')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -31,7 +31,7 @@ function getStudents() {
 }
 
 function addProfessor(name, gender) {
-    axios.post('/professor',{
+    return axios.post('/professor',{
         name: name,
         gender: gender
       })
@@ -49,7 +49,7 @@ function addProfessor(name, gender) {
 }
 
 function addStudent(house, name, gender) {
-    axios.post('/student',{
+    return axios.post('/student',{
         house: house,
         name: name,
         gender: gender
@@ -68,7 +68,7 @@ function addStudent(house, name, gender) {
 }
 
 function deleteProfessor(id) {
-    axios.delete('/professor',{
+    return axios.delete('/professor',{
         id: id,
       })
   .then(function (response) {
@@ -85,7 +85,7 @@ function deleteProfessor(id) {
 }
 
 function deleteStudent(id) {
-    axios.delete('/student',{
+    return axios.delete('/student',{
         id: id,
       })
   .then(function (response) {
@@ -102,7 +102,7 @@ function deleteStudent(id) {
 }
 
 function getScores() {
-    axios.get('/scores')
+    return axios.get('/scores')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -117,7 +117,7 @@ function getScores() {
 }
 
 function addScore(professor, house, value) {
-    axios.post('/scores', 
+    return axios.post('/scores', 
     {
         professor: professor,
         house: house,
