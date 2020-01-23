@@ -11,6 +11,25 @@ import iconSerpentard from '../images/icons/Icone_de_Serpentard.png'
 
 const TableStudents = ({ dispatch, students }) => {
 
+    const getImgHouse = (houseName) => {
+        switch (houseName) {
+            case 'Gryffondor':
+              return <img src={iconGryffondor} className="houseIcon" alt="icon" />
+        
+            case 'Poufsouffle':
+            return <img src={iconPoufsouffle} className="houseIcon" alt="icon" />
+        
+            case 'Serdaigle':
+                return <img src={iconSerdaigle} className="houseIcon" alt="icon" />
+            
+            case 'Serpentard':
+                return <img src={iconSerpentard} className="houseIcon" alt="icon" />
+                
+            default:
+              return 
+          }  
+    }
+
     return (
         <div className="tableStudentsProfessors column">
             <div className="harryFontFamily">STUDENTS</div>
@@ -27,7 +46,7 @@ const TableStudents = ({ dispatch, students }) => {
                 <tbody>
                     {students.map(student => (
                         <tr key={student.id} >
-                            <td><img src={iconGryffondor} className="houseIcon" alt="icon" /></td>
+                            <td>{getImgHouse(student.house)}</td>
                             <td>{student.firstName}</td>
                             <td>{student.lastName}</td>
                             <td>{student.gender}</td>

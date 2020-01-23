@@ -7,13 +7,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import teal from '@material-ui/core/colors/teal';
 
 const store = createStore(rootReducer)
 
 const theme = createMuiTheme({
     palette: {
-      primary: teal,
+      primary: {
+        main: '#242424',
+      }
     },
 });
 

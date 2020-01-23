@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removePoints } from '../actions'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
+import { addPoints } from '../actions'
+import Fab from '@material-ui/core/Fab'
 
 import iconGryffondor from '../images/icons/Icone_de_Gryffondor.png'
 import iconPoufsouffle from '../images/icons/Icone_de_Poufsouffle.png'
@@ -12,55 +14,32 @@ import iconSerpentard from '../images/icons/Icone_de_Serpentard.png'
 
 
 const houses = [
-    {
-      img: {iconGryffondor},
-      value: 'Gryffondor',
-    },
-    {
-      img: {iconPoufsouffle},
-      value: 'Poufsouffle',
-    },
-    {
-      img: {iconSerdaigle},
-      value: 'Serdaigle',
-    },
-    {
-      img: {iconSerpentard},
-      value: 'Serpentard',
-    },
-  ];
-
-  const professorst = [
-    {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      value: 'firstName'+' '+'lastName',
-    },
-    {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      value: 'firstName'+' '+'lastName',
-    },
-    {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      value: 'firstName'+' '+'lastName',
-    },
-    {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      value: 'firstName'+' '+'lastName',
-    },
-  ];
+  {
+    img: {iconGryffondor},
+    value: 'Gryffondor',
+  },
+  {
+    img: {iconSerdaigle},
+    value: 'Serdaigle',
+  },
+  {
+    img: {iconSerpentard},
+    value: 'Serpentard',
+  },
+  {
+    img: {iconPoufsouffle},
+    value: 'Poufsouffle',
+  },
+];
 
 const useStyles = makeStyles(theme => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: 200,
-      },
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
     },
-  }));
+  },
+}));
   
 
 
@@ -81,58 +60,69 @@ const FormularPoints = ({ dispatch, professors }) => {
         setPoints(event.target.value)
     };
   
+    const concatProfessor= (firstName, lastName) => {
+      return firstName + " " + lastName
+    };
+  
+    const verificationInput= () => {
+      if(house == "" | professor == "" | points == "" | isNaN(points)){
+        return true
+      }
+      return false
+    };
+
     return (
         <div className="tableAddPoints column">
             <div className="formularTitle harryFontFamily">POINTS FORMULAR</div>
 
 
-                <form className={classes.root} noValidate autoComplete="off">
-                    <div className="center">
-                    <div className="formularInput">
-                        <TextField
-                        id="outlined-select-currency"
-                        select
-                        label="House"
-                        value={house}
-                        onChange={handleChangeHouse}
-                        helperText="Please select a house"
-                        variant="outlined"
-                        >
-                        {houses.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                            {option.value}
-                            </MenuItem>
-                        ))}
-                        </TextField>
+          <form className={classes.root} noValidate autoComplete="off">
+              <div className="center">
+              <div className="formularInput">
+                  <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="House"
+                  value={house}
+                  onChange={handleChangeHouse}
+                  variant="outlined"
+                  >
+                  {houses.map(option => (
+                      <MenuItem key={option.value} value={option.value}>
+                      {option.value}
+                      </MenuItem>
+                  ))}
+                  </TextField>
 
-                        <TextField
-                        id="outlined-select-currency"
-                        select
-                        label="Professor"
-                        value={professor}
-                        onChange={handleChangeProfessor}
-                        helperText="Please select a professor"
-                        variant="outlined"
-                        >
-                        {professorst.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                            {option.firstName} {option.lastName}
-                            </MenuItem>
-                        ))}
-                        </TextField>
+                  <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Professor"
+                  value={professor}
+                  onChange={handleChangeProfessor}
+                  variant="outlined"
+                  >
+                  {professors.map(option => (
+                      <MenuItem key={option.id} value={concatProfessor(option.firstName, option.lastName)}>
+                      {concatProfessor(option.firstName, option.lastName)}
+                      </MenuItem>
+                  ))}
+                  </TextField>
 
-                        <TextField id="outlined-basic"
-                        label="Points"
-                        variant="outlined"
-                        value={points}
-                        onChange={handleChangePoints}
-                        helperText="Please enter a number of points"
-                         />
+                  <TextField id="outlined-basic"
+                  label="Points"
+                  variant="outlined"
+                  value={points}
+                  onChange={handleChangePoints}
+                    />
 
-                    </div>
-                    </div>
-                </form>
+              </div>
+              </div>
+          </form>
 
+          <Fab className="button" variant="extended" disabled={verificationInput()} onClick={() => { dispatch(addPoints(house, professor, points))}}>
+              save
+            </Fab>
 
         </div>
     )

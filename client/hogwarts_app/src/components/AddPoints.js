@@ -8,8 +8,8 @@ const AddPoints = () => {
 
   return (
     <div className="addPoints">
-        <TablePoints/>
-        <FormularPoints/>
+      <FormularPoints/>
+      <TablePoints/>
     </div>
   )
 }
