@@ -4,11 +4,8 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import FormularStudent from './FormularStudent.js'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -54,7 +51,7 @@ const handleChangeGender = event => {
 };
 
 const verificationInput= () => {
-  if(firstName == "" | lastName == "" | gender == "" ){
+  if(firstName === "" | lastName === "" | gender === "" ){
     return true
   }
   return false

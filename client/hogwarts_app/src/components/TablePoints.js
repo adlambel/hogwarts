@@ -7,7 +7,6 @@ import iconGryffondor from '../images/icons/Icone_de_Gryffondor.png'
 import iconPoufsouffle from '../images/icons/Icone_de_Poufsouffle.png'
 import iconSerdaigle from '../images/icons/Icone_de_Serdaigle.png'
 import iconSerpentard from '../images/icons/Icone_de_Serpentard.png'
-import { red } from '@material-ui/core/colors'
 
 
 const TablePoints = ({ dispatch, points }) => {
