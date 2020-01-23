@@ -42,7 +42,7 @@ const TablePoints = ({ dispatch, points }) => {
 
     const removeIcon = (active, id) =>{
         if(active){
-            return <ClearIcon style={{color: "#707070", fontSize: "40px"}} onClick={() => { dispatch(removePoints(id))}}/>
+            return <ClearIcon style={{color: "#707070", fontSize: "40px", cursor: "pointer"}} onClick={() => { dispatch(removePoints(id))}}/>
         }
         else{
             return 

@@ -50,7 +50,7 @@ const TableStudents = ({ dispatch, students }) => {
                             <td>{student.firstName}</td>
                             <td>{student.lastName}</td>
                             <td>{student.gender}</td>
-                            <td><ClearIcon style={{color: "#707070", fontSize: "40px"}} onClick={() => { dispatch(removeStudent(student.id))}}/></td>
+                            <td><ClearIcon style={{color: "#707070", fontSize: "40px", cursor: "pointer"}} onClick={() => { dispatch(removeStudent(student.id))}}/></td>
                         </tr>
                     ))}
                 </tbody>
