@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
 import { addPoints } from '../actions'
 import Fab from '@material-ui/core/Fab'
 
@@ -65,7 +64,7 @@ const FormularPoints = ({ dispatch, professors }) => {
     };
   
     const verificationInput= () => {
-      if(house == "" | professor == "" | points == "" | isNaN(points)){
+      if(house === "" | professor === "" | points === "" | isNaN(points)){
         return true
       }
       return false

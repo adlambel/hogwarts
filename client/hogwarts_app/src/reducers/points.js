@@ -34,7 +34,7 @@ const points = (state = init, action) => {
 
     case 'REMOVE_POINTS':
       for (var i in state) {
-        if (state[i].id == action.id) {
+        if (state[i].id === action.id) {
           state[i].active = false;
            break
         }
