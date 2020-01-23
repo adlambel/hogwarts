@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import bodyParser from 'body-parser'
 import Dal from './typeOrmDal'
+import Professor from './models/professor'
 
 const app = express()
 
@@ -79,6 +80,25 @@ app.delete('/student/:id', async (req, res) => {
     .status(200)
     .set('Content-Type', 'application/json')
     .json(newData)
+})
+
+app.get('/scores', async (_, res) => {
+  const dal = new Dal()
+  const data = await dal.getScores()
+  res
+    .status(200)
+    .set('Content-Type', 'application/json')
+    .json(data)
+})
+
+app.post('/scores/:professor/:house/:value', async (_, res) => {
+  const dal = new Dal()
+  const { professor, house, value } = req.params
+  const data = await dal.addScore( professor, house, value );
+  res
+    .status(200)
+    .set('Content-Type', 'application/json')
+    .json(data)
 })
 
 export default app

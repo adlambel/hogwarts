@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe('Async action', () => {
   it('GET', async () => {
-    const fakeResponse = [{ id: 1, name: 'name', age: 7 }]
+    const fakeResponse = [{ id: 1, name: 'name', gender: 'M' }]
     mockGetData.mockReturnValue(fakeResponse)
 
     const response = await request(app).get('/')
@@ -31,15 +31,15 @@ describe('Async action', () => {
   })
 
   it('POST', async () => {
-    const fakeResponse = { id: 1, name: 'name', age: 7 }
+    const fakeResponse = { id: 1, name: 'name', age: 'F' }
     mockAdd.mockReturnValue(fakeResponse)
 
-    const response = await request(app).post('/name/7')
+    const response = await request(app).post('/name/F')
 
     expect(response.status).toBe(200)
     expect(response.body).toEqual(fakeResponse)
     expect(mockAdd).toHaveBeenCalledTimes(1)
-    expect(mockAdd).toHaveBeenCalledWith('name', 7)
+    expect(mockAdd).toHaveBeenCalledWith('name', 'F')
     expect(mockGetData).not.toHaveBeenCalled()
   })
 })

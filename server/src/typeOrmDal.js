@@ -122,6 +122,21 @@ class TypeOrmDal {
     }
   }
   
+  async addScore( professor, house, value ) {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Log)
+      const newData = new Log(null, house, professor, value)
+      await dataRepository.save(newData)
+      return newData
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
+  
 }
 
 export default TypeOrmDal
