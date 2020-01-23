@@ -1,9 +1,10 @@
 import React from 'react'
 
-import AddBoxIcon from '@material-ui/icons/AddBox';
 //import Table from './Table.js'
 import TableStudents from './TableStudents.js'
 import TableProfessors from './TableProfessors.js'
+import PopupAddStudent from './PopupAddStudent.js'
+import PopupAddProfessor from './PopupAddProfessor.js'
 
 
 const Members = () => {
@@ -12,7 +13,8 @@ const Members = () => {
     <div className="members">
       <TableStudents />
       <div className= "addStudentProfessor">
-        <div className= "center"><AddBoxIcon style={{color: "#242424", fontSize: "80px"}}/></div>
+        <PopupAddStudent/>
+        <PopupAddProfessor/>
       </div>
       <TableProfessors />
     </div>

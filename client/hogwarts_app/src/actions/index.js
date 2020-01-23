@@ -8,7 +8,7 @@ export const addStudent = (house, firstName, lastName, gender) => ({
   house,
   firstName,
   lastName,
-  gender
+  gender 
 })
 
 export const removeStudent = id => ({
@@ -28,11 +28,11 @@ export const removeProfessor = id => ({
   id
 })
 
-export const addPoints = (firstName, lastName, gender) => ({
+export const addPoints = (house, professor, points) => ({
   type: 'ADD_POINTS',
-  firstName,
-  lastName,
-  gender
+  house,
+  professor,
+  points
 })
 
 export const removePoints = id => ({
