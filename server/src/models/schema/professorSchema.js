@@ -12,7 +12,11 @@ export const professorSchema = new EntitySchema({
       generated: true,
       type: 'int'
     },
-    fullname: {
+    firstname: {
+      type: 'varchar',
+      nullable: false
+    },
+    lastname: {
       type: 'varchar',
       nullable: false
     },

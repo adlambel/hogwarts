@@ -1,7 +1,8 @@
 class People {
-  constructor(id, fullname, gender) {
+  constructor(id, firstname, lastname, gender) {
     this.id = id;
-    this.fullname = fullname;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.gender = gender;
   }
 }

@@ -1,8 +1,8 @@
 import People from './people';
 
 class Professor extends People {
-  constructor(id, fullname, gender) {
-    super(id, fullname, gender);
+  constructor(id, firstname, lastname, gender) {
+    super(id, firstname, lastname, gender);
   }
 }
 

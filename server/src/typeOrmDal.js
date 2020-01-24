@@ -50,11 +50,11 @@ class TypeOrmDal {
     }
   }
 
-  async addProfessor(name, age) {
+  async addProfessor(firstname, lastname, age) {
     const connection = await this.connect()
     try {
       const dataRepository = connection.getRepository(Professor)
-      const newData = new Professor(null, name, age)
+      const newData = new Professor(null, firstname, lastname, age)
       await dataRepository.save(newData)
       return newData
     } catch (err) {
@@ -79,11 +79,11 @@ class TypeOrmDal {
     }
   }
 
-  async addStudent(house, name, age) {
+  async addStudent(house, firstname, lastname, age) {
     const connection = await this.connect()
     try {
       const dataRepository = connection.getRepository(Student)
-      const newData = new Student(null, house, name, age)
+      const newData = new Student(null, house, firstname, lastname, age)
       await dataRepository.save(newData)
       return newData
     } catch (err) {
