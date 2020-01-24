@@ -111,10 +111,9 @@ class TypeOrmDal {
   async getScores() {
     const connection = await this.connect()
     try {
-      const dataRepository = connection.query("SELECT house, value, COUNT(*) FROM Log GROUP BY house;")  
-
-      // TODO
-      return await dataRepository.find()
+      const res = await connection.query("SELECT house, SUM(value) FROM Logs GROUP BY house;")
+      console.log(res)
+      return res
     } catch (err) {
       console.error(err.message)
       throw err

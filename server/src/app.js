@@ -83,6 +83,7 @@ app.delete('/student/:id', async (req, res) => {
     .json(newData)
 })
 
+
 app.get('/scores', async (_, res) => {
   const dal = new Dal()
   const data = await dal.getScores()
