@@ -1,5 +1,4 @@
 import express from 'express'
-import fs from 'fs'
 import path from 'path'
 import bodyParser from 'body-parser'
 import Dal from './typeOrmDal'
@@ -82,6 +81,15 @@ app.delete('/student/:id', async (req, res) => {
     .status(200)
     .set('Content-Type', 'application/json')
     .json(newData)
+})
+
+app.get('/logs', async (_, res) => {
+  const dal = new Dal()
+  const data = await dal.getLogs()
+  res
+    .status(200)
+    .set('Content-Type', 'application/json')
+    .json(data)
 })
 
 
