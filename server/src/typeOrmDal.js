@@ -111,7 +111,8 @@ class TypeOrmDal {
   async getScores() {
     const connection = await this.connect()
     try {
-      const dataRepository = connection.getRepository(Log)
+      const dataRepository = connection.query("SELECT house, value, COUNT(*) FROM Log GROUP BY house;")  
+
       // TODO
       return await dataRepository.find()
     } catch (err) {
