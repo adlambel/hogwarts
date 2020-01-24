@@ -3,7 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import bodyParser from 'body-parser'
 import Dal from './typeOrmDal'
-import Professor from './models/professor'
+
+
 
 const app = express()
 
@@ -18,10 +19,10 @@ app.use(function(_req, res, next) {
   next()
 })
 
+app.use(express.static(path.join(__dirname,'../build')));
+
 app.get('/', async (_, res) => {
-  fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
-    // console.log(data);
-  })
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 app.get('/professor', async (_, res) => {
