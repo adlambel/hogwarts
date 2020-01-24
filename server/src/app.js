@@ -93,7 +93,7 @@ app.get('/scores', async (_, res) => {
     .json(data)
 })
 
-app.post('/scores/:professor/:house/:value', async (_, res) => {
+app.post('/scores/:professor/:house/:value', async (req, res) => {
   const dal = new Dal()
   const { professor, house, value } = req.params
   const data = await dal.addScore( professor, house, value );

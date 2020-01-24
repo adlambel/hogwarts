@@ -23,10 +23,6 @@ export const logSchema = new EntitySchema({
       type: 'datetime',
       nullable: false
     },
-    isAdd: {
-      type: 'boolean',
-      nullable: false
-    },
     value: {
       type: 'int',
       nullable: false
