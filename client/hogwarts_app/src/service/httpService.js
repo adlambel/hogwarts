@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-export default class HttpService {
+const HttpService = {
 
   getProfessors() {
       return axios.get('/professor')
@@ -15,7 +15,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   getStudents() {
       return axios.get('/student')
@@ -30,7 +30,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   addProfessor(name, gender) {
       return axios.post('/professor',{
@@ -48,7 +48,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   addStudent(house, name, gender) {
       return axios.post('/student',{
@@ -67,7 +67,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   deleteProfessor(id) {
       return axios.delete('/professor',{
@@ -84,7 +84,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   deleteStudent(id) {
       return axios.delete('/student',{
@@ -101,7 +101,7 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
 
   getScores() {
       return axios.get('/scores')
@@ -116,7 +116,28 @@ export default class HttpService {
     .then(function () {
       // always executed
     });
-  }
+  },
+
+  getScore(house) {
+      return axios.get('/scores')
+          .then(function (response) {
+              // handle success
+              var jsonData = JSON.parse(response.body)
+              for (var i = 0; i < jsonData.length; i++) {
+                  var counter = jsonData[i]
+                  if(counter.house === house)
+                    return counter.value
+              }
+              return 0
+          })
+          .catch(function (error) {
+              // handle error
+              console.log(error);
+          })
+          .then(function () {
+              // always executed
+          });
+  },
 
   addScore(professor, house, value) {
       return axios.post('/scores', 
@@ -138,3 +159,5 @@ export default class HttpService {
     });
   }
 }
+
+export default HttpService;
