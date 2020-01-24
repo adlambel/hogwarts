@@ -107,6 +107,19 @@ class TypeOrmDal {
       await connection.close()
     }
   }
+  
+  async getLogs() {
+    const connection = await this.connect()
+    try {
+      const dataRepository = connection.getRepository(Log)
+      return await dataRepository.find()
+    } catch (err) {
+      console.error(err.message)
+      throw err
+    } finally {
+      await connection.close()
+    }
+  }
 
   async getScores() {
     const connection = await this.connect()
