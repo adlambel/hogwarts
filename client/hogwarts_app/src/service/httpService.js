@@ -2,124 +2,54 @@ const axios = require('axios');
 
 const HttpService = {
 
-    getProfessors() {
-        axios.get('/professor')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+    async getProfessors() {
+        const res = await axios.get('/professor')
+        return res;
     },
 
-    getStudents() {
-        axios.get('/student')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+    async getStudents() {
+        const res = await axios.get('/student')
+        return res
     },
 
-    addProfessor(name, gender) {
-        axios.post('/professor', {
+    async addProfessor(name, gender) {
+        const res = await axios.post('/professor', {
             name: name,
             gender: gender
         })
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        return res;
     },
 
-    addStudent(house, name, gender) {
-        axios.post('/student', {
+    async addStudent(house, name, gender) {
+        const res = await axios.post('/student', {
             house: house,
             name: name,
             gender: gender
         })
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        return res;
     },
 
-    deleteProfessor(id) {
-        axios.delete('/professor', {
+    async deleteProfessor(id) {
+        const res = await axios.delete('/professor', {
             id: id,
         })
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        return res;
     },
 
-    deleteStudent(id) {
-        axios.delete('/student', {
+    async deleteStudent(id) {
+        const res = await axios.delete('/student', {
             id: id,
         })
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        return res;
     },
 
-    getScores() {
-        axios.get('/scores')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+    async getScores() {
+        const res = await axios.get('/scores')
+        return res;
     },
 
-    getScore(house) {
-        axios.get('http://localhost:3000/scores')
+    async getScore(house) {
+        const res = await axios.get('http://localhost:3000/scores')
             .then(function (response) {
                 // handle success
                 var jsonData = response.data
@@ -139,38 +69,19 @@ const HttpService = {
             });
     },
 
-    addScore(professor, house, value) {
-        axios.post('/scores',
+    async addScore(professor, house, value) {
+        const res = await axios.post('/scores',
             {
                 professor: professor,
                 house: house,
                 value: value
             })
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+            return res;
     },
 
-    getLogs() {
-        axios.get('http://localhost:3000/logs')
-            .then(function (response) {
-                return response.data
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+    async getLogs() {
+        const res = await axios.get('http://localhost:3000/logs')
+            return res
     }
 }
 
