@@ -14,15 +14,14 @@ import blazonSerpentard from '../images/blazons/Blason_de_Serpentard.png'
 const Home = ({points}) => {
 
     const getHousePoint = (housename) => {
-        /*const filteredpoints = points.filter(item => item.house === housename)
+        const filteredpoints = points.filter(item => item.house === housename)
         let sumFilteredpoints = 0
         {
             filteredpoints.map(point => (
                 sumFilteredpoints += parseInt(point.points)
             ))
         }
-        return sumFilteredpoints*/
-        return HttpService.getScore(housename);
+        return sumFilteredpoints
     }
 
     return (
