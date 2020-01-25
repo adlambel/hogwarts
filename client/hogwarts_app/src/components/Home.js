@@ -14,6 +14,7 @@ import blazonSerpentard from '../images/blazons/Blason_de_Serpentard.png'
 const Home = ({points}) => {
 
     const getHousePoint = (housename) => {
+        /*
         const filteredpoints = points.then((res) => {
             let sumFilteredpoints = 0
             let test = res.filter(item => item.house === housename)
@@ -22,6 +23,8 @@ const Home = ({points}) => {
         })
         console.log(filteredpoints)
         return filteredpoints
+        */
+       return 3
     }
 
     return (
