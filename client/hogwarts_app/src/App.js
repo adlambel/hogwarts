@@ -4,7 +4,7 @@ import './App.css';
 import Fab from '@material-ui/core/Fab'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import { connect } from 'react-redux'
-import { initPoints } from './actions'
+import { init } from './actions'
 
 import Home from './components/Home.js';
 import AddPoints from './components/AddPoints.js';
@@ -13,11 +13,23 @@ import Members from './components/Members.js';
 
 function App({dispatch}) {
 
-  const [selectedBody, setSelectedBody] = React.useState("home")
+  const getPathName = () =>{
+    let pathName = window.location.pathname
+    if(pathName === "/members"){
+      return "Members"
+    }
+    if(pathName === "/addPoints"){
+      return "Add Points"
+    }
+    else{
+      return "Home"
+    }
+  }
+
+  const [selectedBody, setSelectedBody] = React.useState(getPathName())
 
   const getHeader = () =>{
     if(selectedBody === "Add Points" || selectedBody === "Members"){
-      //dispatch(initPoints())
       return (
         <div className="headerButtonsContainer">
           <Link to="/" style={{ textDecoration: 'none' }}>
@@ -59,9 +71,9 @@ function App({dispatch}) {
               {getHeader()}
           </div>
 
-          <Route exact path="/" component={Home} onEnter={dispatch(initPoints())}/>
-          <Route path="/addPoints" component={AddPoints} />
-          <Route path="/members" component={Members} />
+          <Route exact path="/" component={Home} onEnter={dispatch(init())}/>
+          <Route path="/addPoints" component={AddPoints} onEnter={dispatch(init())}/>
+          <Route path="/members" component={Members} onEnter={dispatch(init())}/>
 
       </div>
     </Router>

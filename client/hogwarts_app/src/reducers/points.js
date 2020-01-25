@@ -21,9 +21,9 @@ let id = 2
 const points = (state = [], action) => {
 
   switch (action.type) {
-    case 'INIT_POINTS':
+    case 'INIT':
       console.log('teste')
-      state = action.payload.data
+      state = action.payload
       return state
 
     case 'ADD_POINTS':
