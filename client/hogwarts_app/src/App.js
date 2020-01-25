@@ -71,7 +71,7 @@ function App({dispatch}) {
               {getHeader()}
           </div>
 
-          <Route exact path="/" component={Home} onEnter={dispatch(init())}/>
+          <Route exact path="/home" component={Home} onEnter={dispatch(init())}/>
           <Route path="/addPoints" component={AddPoints} onEnter={dispatch(init())}/>
           <Route path="/members" component={Members} onEnter={dispatch(init())}/>
 

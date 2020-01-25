@@ -13,7 +13,11 @@ import blazonSerpentard from '../images/blazons/Blason_de_Serpentard.png'
 
 const Home = ({points}) => {
 
+    const housePoints = points;
+
     const getHousePoint = (housename) => {
+        console.log(housePoints);
+
         /*
         const filteredpoints = points.then((res) => {
             let sumFilteredpoints = 0

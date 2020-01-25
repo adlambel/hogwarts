@@ -22,9 +22,13 @@ const points = (state = [], action) => {
 
   switch (action.type) {
     case 'INIT':
-      console.log('teste')
-      state = action.payload
-      return state
+      action.payload.then((res) => {
+        const data = res.data
+        state = data
+        console.log(state); // resultat OK 
+        return state
+      })
+     
 
     case 'ADD_POINTS':
       ++id

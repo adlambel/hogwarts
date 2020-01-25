@@ -4,12 +4,17 @@ import app from '../app'
 // How to mock an exported class
 // These inner mocks must always start with 'mock'
 // or else jest will throw an error
-const mockGetData = jest.fn()
+const mockGetProfessor = jest.fn()
 const mockAdd = jest.fn()
 jest.mock('../typeOrmDal', () => {
   return jest.fn().mockImplementation(() => ({
-    getData: mockGetData,
-    add: mockAdd
+    getProfessor: mockGetProfessor,
+    addProfessor: mockaddProfessor,
+    removeProfessor: mockremoveProfessor,
+    addStudent: mockaddStudent,
+    removeStudent: mockremoveStudent,
+    getScores: mockgetScores,
+    addScore: mockaddScore
   }))
 })
 
@@ -43,3 +48,20 @@ describe('Async action', () => {
     expect(mockGetData).not.toHaveBeenCalled()
   })
 })
+
+  async getProfessor() {
+  async getStudent() {
+
+  async addProfessor(firstname, lastname, age) {
+
+  async removeProfessor(id) {
+
+  async addStudent(house, firstname, lastname, age) 
+  async removeStudent(id) {
+  
+  async getLogs() {
+  async getScores() {
+  async addScore( professor, house, value ) {
+}
+
+export default TypeOrmDal
