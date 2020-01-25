@@ -15,28 +15,25 @@ const Home = ({points}) => {
 
     const getHousePoint = (housename) => {
         const filteredpoints = points.then((res) => {
-            res.filter(item => item.house === housename)
+            let sumFilteredpoints = 0
+            let test = res.filter(item => item.house === housename)
+            let test2 = test.map(point => (sumFilteredpoints += parseInt(point.value)))
+            return test2
         })
-
-        let sumFilteredpoints = 0
-        filteredpoints.then( (res) => {
-            res.map(point => (
-                sumFilteredpoints += parseInt(point.points)
-            ))
-        })
-        return sumFilteredpoints
+        console.log(filteredpoints)
+        return filteredpoints
     }
 
     return (
         <div className="home row">
             <House blazonName="Gryffondor" blazonImage={blazonGryffondor} blazonColor="#B41B19"
-                   secondaryBlazonColor="#470507" housePoints={getHousePoint("Gryffondor")}/>
+                   secondaryBlazonColor="#470507" housePoints={getHousePoint("Gryffindor")}/>
             <House blazonName="Serdaigle" blazonImage={blazonSerdaigle} blazonColor="#0981A6"
-                   secondaryBlazonColor="#0B2B38" housePoints={getHousePoint("Serdaigle")}/>
+                   secondaryBlazonColor="#0B2B38" housePoints={getHousePoint("Ravenclaw")}/>
             <House blazonName="Serpentard" blazonImage={blazonSerpentard} blazonColor="#259F48"
-                   secondaryBlazonColor="#112114" housePoints={getHousePoint("Serpentard")}/>
+                   secondaryBlazonColor="#112114" housePoints={getHousePoint("Slytherin")}/>
             <House blazonName="Poufsouffle" blazonImage={blazonPoufsouffle} blazonColor="#F5D20E"
-                   secondaryBlazonColor="#966B28" housePoints={getHousePoint("Poufsouffle")}/>
+                   secondaryBlazonColor="#966B28" housePoints={getHousePoint("Hufflepuff")}/>
         </div>
     )
 }

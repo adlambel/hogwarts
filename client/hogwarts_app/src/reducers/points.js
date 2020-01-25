@@ -1,6 +1,6 @@
 import HttpService from '../service/httpService'
 
-const init = /*HttpService.getLogs()*/[
+const init = HttpService.getLogs()/*[
   {
     id: 1,
     house: "Gryffondor",
@@ -15,7 +15,7 @@ const init = /*HttpService.getLogs()*/[
     points: 3,
     active: true
   }
-]
+]*/
 let id = 2
 
 const points = (state = init, action) => {

@@ -4,8 +4,6 @@
     <list default="true" id="ec54b672-61a2-4b0a-8312-bebc08447265" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/client/hogwarts_app/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/hogwarts_app/src/components/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/hogwarts_app/src/reducers/points.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/hogwarts_app/src/reducers/points.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/hogwarts_app/src/service/httpService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/hogwarts_app/src/service/httpService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/models/hogwarts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/hogwarts.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/components/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state relative-caret-position="345">
+              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -87,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/reducers/points.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <caret line="17" column="3" selection-start-line="2" selection-start-column="34" selection-end-line="17" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -290,7 +288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8987000" />
+    <option name="totallyTimeSpent" value="9844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -471,13 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/reducers/points.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/service/httpService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -485,10 +476,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/reducers/points.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="3" selection-start-line="2" selection-start-column="34" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/hogwarts_app/src/components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state relative-caret-position="345">
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
