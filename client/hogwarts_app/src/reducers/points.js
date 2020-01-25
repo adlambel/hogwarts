@@ -18,9 +18,14 @@ const init = /*HttpService.getLogs()*/[
 ]
 let id = 2
 
-const points = (state = init, action) => {
+const points = (state = [], action) => {
 
   switch (action.type) {
+    case 'INIT_POINTS':
+      return [
+        action.payload.data
+      ]
+
     case 'ADD_POINTS':
       ++id
       return [

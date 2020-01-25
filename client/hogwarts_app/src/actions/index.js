@@ -1,6 +1,10 @@
-export const selecteBody = text => ({
-  type: 'CHANGE_BODY',
-  text
+export const initPoints = () => ({
+  type: 'INIT_POINTS',
+  payload: {
+    request:{
+      url:'/logs'
+    }
+  }
 })
 
 export const addStudent = (house, firstName, lastName, gender) => ({

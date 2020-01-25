@@ -53,10 +53,15 @@ const FormularPoints = ({ dispatch, professors }) => {
     };
     const handleChangeProfessor = event => {
         setProfessor(event.target.value)
-        console.log(event.target.value)
     };
     const handleChangePoints= event => {
         setPoints(event.target.value)
+    };
+    const handleSave= () => {
+        dispatch(addPoints(house, professor, points))
+        setHouse("")
+        setProfessor("")
+        setPoints("")
     };
   
     const concatProfessor= (firstName, lastName) => {
@@ -119,7 +124,7 @@ const FormularPoints = ({ dispatch, professors }) => {
               </div>
           </form>
 
-          <Fab className="button" variant="extended" disabled={verificationInput()} onClick={() => { dispatch(addPoints(house, professor, points))}}>
+          <Fab className="button" variant="extended" disabled={verificationInput()} onClick={() => {handleSave()}}>
               save
             </Fab>
 

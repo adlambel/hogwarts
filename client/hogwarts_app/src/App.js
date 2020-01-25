@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Fab from '@material-ui/core/Fab'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
+import { initPoints } from './actions'
 
 import Home from './components/Home.js';
 import AddPoints from './components/AddPoints.js';
 import Members from './components/Members.js';
 
 
-function App() {
+function App({dispatch}) {
 
   const [selectedBody, setSelectedBody] = React.useState("home")
 
@@ -55,7 +56,7 @@ function App() {
               {getHeader()}
           </div>
 
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/home" component={Home} onEnter={dispatch.initPoints()}/>
           <Route path="/addPoints" component={AddPoints} />
           <Route path="/members" component={Members} />
 
