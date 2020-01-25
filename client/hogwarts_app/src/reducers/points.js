@@ -1,4 +1,4 @@
-import HttpService from '../service/httpService'
+//import HttpService from '../service/httpService'
 
 const init = /*HttpService.getLogs()*/[
   {
@@ -22,9 +22,9 @@ const points = (state = [], action) => {
 
   switch (action.type) {
     case 'INIT_POINTS':
-      return [
-        action.payload.data
-      ]
+      console.log('teste')
+      state = action.payload.data
+      return state
 
     case 'ADD_POINTS':
       ++id

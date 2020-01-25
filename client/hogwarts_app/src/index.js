@@ -9,15 +9,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
+/*
 const client = axios.create({ //all axios can be used, shown in axios documentation
   baseURL:'http://localhost:3000/',
   responseType: 'json'
 });
-
+*/
+const store = createStore(rootReducer)
+/*
 const store = createStore(rootReducer, applyMiddleware(
   axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix
 ))
+*/
 
 const theme = createMuiTheme({
     palette: {

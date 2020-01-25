@@ -1,4 +1,11 @@
-export const initPoints = () => (console.log('testeee'))
+export const initPoints = () => ({
+  type: 'INIT_POINTS',
+  payload: {
+    request:{
+      url:'/logs'
+    }
+  }
+})
 
 export const addStudent = (house, firstName, lastName, gender) => ({
   type: 'ADD_STUDENT',
