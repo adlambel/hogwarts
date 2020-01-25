@@ -1,4 +1,4 @@
-import {React, Component} from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Fab from '@material-ui/core/Fab'
@@ -9,14 +9,14 @@ import Home from './components/Home.js';
 import AddPoints from './components/AddPoints.js';
 import Members from './components/Members.js';
 
-class App extends React.Component {
+class App extends Component {
   constructor({dispatch}) {
     super();
     this.state = {selectedBody: "home"};
-    dispatch(initPoints())
+    //dispatch(initPoints())
   }
 
-   getHeader() {
+   getHeader = () => {
     if(this.state.selectedBody === "Add Points" || this.state.selectedBody === "Members"){
       return (
         <div className="headerButtonsContainer">
@@ -58,7 +58,7 @@ class App extends React.Component {
 
           <div className="header center">
             <div className="heardeName harryFontFamily center">{this.state.selectedBody}</div>
-              {getHeader()}
+              {this.getHeader()}
           </div>
 
           <Route exact path="/home" component={Home} />
