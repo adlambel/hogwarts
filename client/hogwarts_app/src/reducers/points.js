@@ -1,4 +1,6 @@
-const init = [
+import HttpService from '../service/httpService'
+
+const init = /*HttpService.getLogs()*/[
   {
     id: 1,
     house: "Gryffondor",

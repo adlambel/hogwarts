@@ -2,6 +2,7 @@ DROP TABLE students;
 DROP TABLE professors;
 DROP TABLE logs;
 
+
 CREATE TABLE students(
 	id int primary key auto_increment not null,
 	house varchar(20) not null,
@@ -54,7 +55,46 @@ date,
 value)
 VALUES
 (1,
-'Grifondor',
+'Gryffindor',
 1,
 NOW(),
 10);
+
+INSERT INTO db_tests.`logs`
+(id,
+house,
+professor,
+date,
+value)
+VALUES
+(2,
+'Hufflepuff',
+1,
+NOW(),
+20);
+
+INSERT INTO db_tests.`logs`
+(id,
+house,
+professor,
+date,
+value)
+VALUES
+(3,
+'Ravenclaw',
+1,
+NOW(),
+100);
+
+INSERT INTO db_tests.`logs`
+(id,
+house,
+professor,
+date,
+value)
+VALUES
+(4,
+'Slytherin',
+1,
+NOW(),
+100);

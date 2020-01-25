@@ -76,12 +76,12 @@ const HttpService = {
                 house: house,
                 value: value
             })
-            return res;
+        return res;
     },
 
     async getLogs() {
         const res = await axios.get('http://localhost:3000/logs')
-            return res
+        return res.data
     }
 }
 
