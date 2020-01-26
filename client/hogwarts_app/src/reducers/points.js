@@ -22,14 +22,33 @@ const points = (state = [], action) => {
 
   switch (action.type) {
     case 'INIT':
-      action.payload.then((res) => {
+      action.payloadScores.then((res) => {
         const data = res.data
         state = data
-        console.log(state); // resultat OK 
+        console.log(data);
         return state
       })
-     
 
+    case 'ADD_POINTS':
+      const dataPoint = action.payload.then((res) => {
+        const data = res.data
+        console.log(data);
+        return data
+      })
+      return [
+        ...state,
+        dataPoint
+      ]
+
+    case 'REMOVE_POINTS':
+      for (var i in state) {
+        if (state[i].id === action.id) {
+          state[i].active = false;
+            break
+        }
+      }
+
+/*
     case 'ADD_POINTS':
       ++id
       return [
@@ -51,9 +70,11 @@ const points = (state = [], action) => {
         }
       }
       return state
+*/
 
     default:
       return state
   }  
 }
+
 export default points

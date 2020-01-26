@@ -14,9 +14,38 @@ const init = [
 ]
 let id = 2
 
-const professors = (state = init, action) => {
+const professors = (state = [], action) => {
  
   switch (action.type) {
+
+    case 'INIT':
+      action.payloadProfessors.then((res) => {
+        const data = res.data
+        state = data
+        console.log(data);
+        return state
+      })
+
+    case 'ADD_PROFESSOR':
+      const dataProf = action.payload.then((res) => {
+        const data = res.data
+        console.log(data);
+        return data
+      })
+      return [
+        ...state,
+        dataProf
+      ]
+
+    case 'REMOVE_PROFESSOR':
+      const dataProf = action.payload.then((res) => {
+        const data = res.data
+        console.log(data);
+        return data
+      })
+      return state.filter(item => item.id !== dataProf.id)
+
+/*
     case 'ADD_PROFESSOR':
       ++id
       return [
@@ -31,9 +60,11 @@ const professors = (state = init, action) => {
 
     case 'REMOVE_PROFESSOR':
       return state.filter(item => item.id !== action.id)
+*/
 
     default:
       return state
   }  
 }
+
 export default professors
