@@ -22,7 +22,7 @@ const points = (state = [], action) => {
 
   switch (action.type) {
     case 'INIT':
-      action.payloadScores.then((res) => {
+      return action.payloadScores.then((res) => {
         const data = res.data
         state = data
         console.log(data);

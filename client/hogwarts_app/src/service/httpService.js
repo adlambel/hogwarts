@@ -12,18 +12,20 @@ const HttpService = {
         return res
     },
 
-    async addProfessor(name, gender) {
+    async addProfessor(firstname, lastname, gender) {
         const res = await axios.post('http://localhost:3000/professor', {
-            name: name,
+            firstname: firstname,
+            lastname: lastname,
             gender: gender
         })
         return res;
     },
 
-    async addStudent(house, name, gender) {
+    async addStudent(house, firstname, lastname, gender) {
         const res = await axios.post('http://localhost:3000/student', {
             house: house,
-            name: name,
+            firstname: firstname,
+            lastname: lastname,
             gender: gender
         })
         return res;

@@ -7,13 +7,13 @@ export const init = () => ({
   payloadStudents: HttpService.getStudents() // donc payload est une promesse gérée dans points.js
 })
 
-export const addStudent = (house, firstName, lastName, gender) => ({
+export const addStudent = (house, firstname, lastname, gender) => ({
   type: 'ADD_STUDENT',
-  payload: HttpService.addStudent(house, name, gender),
+  payload: HttpService.addStudent(house, firstname, lastname, gender),
   house,
-  firstName,
-  lastName,
-  gender 
+  firstname,
+  lastname,
+  gender
 })
 
 export const removeStudent = id => ({
@@ -22,11 +22,11 @@ export const removeStudent = id => ({
   id
 })
 
-export const addProfessor = (firstName, lastName, gender) => ({
+export const addProfessor = (firstname, lastname, gender) => ({
   type: 'ADD_PROFESSOR',
-  payload: HttpService.addProfessor(name, gender),
-  firstName,
-  lastName,
+  payload: HttpService.addProfessor(firstname, lastname, gender),
+  firstname,
+  lastname,
   gender
 })
 
@@ -38,7 +38,7 @@ export const removeProfessor = id => ({
 
 export const addPoints = (house, professor, points) => ({
   type: 'ADD_POINTS',
-  payload: HttpService.addScore(professor, house, value),
+  payload: HttpService.addScore(professor, house, points),
   house,
   professor,
   points
