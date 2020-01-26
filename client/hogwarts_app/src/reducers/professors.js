@@ -10,7 +10,7 @@ const professors = (state = [], action) => {
             break;
 
         case 'ADD_PROFESSOR_SUCCESS':
-            return [...state, action.payload.data]
+            return [action.payload.data, ...state]
 
         case 'ADD_PROFESSOR_FAIL':
             break;
