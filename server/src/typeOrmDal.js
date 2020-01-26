@@ -70,7 +70,7 @@ class TypeOrmDal {
     try {
       const dataRepository = connection.getRepository(Professor)
       const res = await dataRepository.delete(id)
-      return res
+      return id
     } catch (err) {
       console.error(err.message)
       throw err
@@ -125,7 +125,6 @@ class TypeOrmDal {
     const connection = await this.connect()
     try {
       const res = await connection.query("SELECT house, SUM(value) as value FROM Logs GROUP BY house;")
-      console.log(res)
       return res
     } catch (err) {
       console.error(err.message)
@@ -135,11 +134,11 @@ class TypeOrmDal {
     }
   }
   
-  async addScore( professor, house, value ) {
+  async addScore(profname, house, value ) {
     const connection = await this.connect()
     try {
       const dataRepository = connection.getRepository(Log)
-      const newData = new Log(null, house, professor, value)
+      const newData = new Log(null, house, profname, value)
       await dataRepository.save(newData)
       return newData
     } catch (err) {

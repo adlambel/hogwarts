@@ -15,19 +15,19 @@ import iconSerpentard from '../images/icons/Icone_de_Serpentard.png'
 const houses = [
   {
     img: {iconGryffondor},
-    value: 'Gryffondor',
+    value: 'Gryffindor',
   },
   {
     img: {iconSerdaigle},
-    value: 'Serdaigle',
+    value: 'Ravenclaw',
   },
   {
     img: {iconSerpentard},
-    value: 'Serpentard',
+    value: 'Slytherin',
   },
   {
     img: {iconPoufsouffle},
-    value: 'Poufsouffle',
+    value: 'Hufflepuff',
   },
 ];
 
@@ -107,8 +107,8 @@ const FormularPoints = ({ dispatch, professors }) => {
                   variant="outlined"
                   >
                   {professors.map(option => (
-                      <MenuItem key={option.id} value={concatProfessor(option.firstName, option.lastName)}>
-                      {concatProfessor(option.firstName, option.lastName)}
+                      <MenuItem key={option.id} value={concatProfessor(option.firstname, option.lastname)}>
+                      {concatProfessor(option.firstname, option.lastname)}
                       </MenuItem>
                   ))}
                   </TextField>

@@ -22,8 +22,8 @@ const TableProfessors = ({ dispatch, professors }) => {
                 <tbody>
                     {professors.map(professor => (
                         <tr key={professor.id} >
-                            <td>{professor.firstName}</td>
-                            <td>{professor.lastName}</td>
+                            <td>{professor.firstname}</td>
+                            <td>{professor.lastname}</td>
                             <td>{professor.gender}</td>
                             <td><ClearIcon style={{color: "#707070", fontSize: "40px", cursor: "pointer"}} onClick={() => { dispatch(removeProfessor(professor.id))}}/></td>
                         </tr>

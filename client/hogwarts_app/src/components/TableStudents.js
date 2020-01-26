@@ -13,16 +13,16 @@ const TableStudents = ({ dispatch, students }) => {
 
     const getImgHouse = (houseName) => {
         switch (houseName) {
-            case 'Gryffondor':
+            case 'Gryffindor':
               return <img src={iconGryffondor} className="houseIcon" alt="icon" />
         
-            case 'Poufsouffle':
+            case 'Hufflepuff':
             return <img src={iconPoufsouffle} className="houseIcon" alt="icon" />
-        
-            case 'Serdaigle':
+
+            case 'Ravenclaw':
                 return <img src={iconSerdaigle} className="houseIcon" alt="icon" />
             
-            case 'Serpentard':
+            case 'Slytherin':
                 return <img src={iconSerpentard} className="houseIcon" alt="icon" />
                 
             default:
@@ -47,8 +47,8 @@ const TableStudents = ({ dispatch, students }) => {
                     {students.map(student => (
                         <tr key={student.id} >
                             <td>{getImgHouse(student.house)}</td>
-                            <td>{student.firstName}</td>
-                            <td>{student.lastName}</td>
+                            <td>{student.firstname}</td>
+                            <td>{student.lastname}</td>
                             <td>{student.gender}</td>
                             <td><ClearIcon style={{color: "#707070", fontSize: "40px", cursor: "pointer"}} onClick={() => { dispatch(removeStudent(student.id))}}/></td>
                         </tr>

@@ -42,8 +42,8 @@ app.get('/student', async (_, res) => {
     .json(data)
 })
 
-app.post('/professor/:firstname/:lastname/:gender', async (req, res) => {
-  const { firstname, lastname, gender } = req.params
+app.post('/professor', async (req, res) => {
+  const { firstname, lastname, gender } = req.query
   const dal = new Dal()
   const newData = await dal.addProfessor(firstname, lastname, gender)
   res
@@ -52,9 +52,8 @@ app.post('/professor/:firstname/:lastname/:gender', async (req, res) => {
     .json(newData)
 })
 
-app.post('/student/:house/:firstname/:lastname/:gender', async (req, res) => {
-  const { house, firstname, lastname, gender } = req.params
-  console.log(house, name, gender);
+app.post('/student', async (req, res) => {
+  const { house, firstname, lastname, gender } = req.query
   const dal = new Dal()
   const newData = await dal.addStudent(house, firstname, lastname, gender)
   res
@@ -63,24 +62,24 @@ app.post('/student/:house/:firstname/:lastname/:gender', async (req, res) => {
     .json(newData)
 })
 
-app.delete('/professor/:id', async (req, res) => {
-  const id = req.params;
+app.delete('/professor', async (req, res) => {
+  const id = req.query;
   const dal = new Dal()
   const newData = await dal.removeProfessor(id)
   res
     .status(200)
     .set('Content-Type', 'application/json')
-    .json(newData)
+    .json(id)
 })
 
-app.delete('/student/:id', async (req, res) => {
-  const id = req.params;
+app.delete('/student', async (req, res) => {
+  const id = req.query;
   const dal = new Dal()
   const newData = await dal.removeStudent(id)
   res
     .status(200)
     .set('Content-Type', 'application/json')
-    .json(newData)
+    .json(id)
 })
 
 app.get('/logs', async (_, res) => {
@@ -102,10 +101,10 @@ app.get('/scores', async (_, res) => {
     .json(data)
 })
 
-app.post('/scores/:professor/:house/:value', async (req, res) => {
+app.post('/scores', async (req, res) => {
   const dal = new Dal()
-  const { professor, house, value } = req.params
-  const data = await dal.addScore( professor, house, value );
+  const {profname, house, value } = req.query
+  const data = await dal.addScore(profname, house, value );
   res
     .status(200)
     .set('Content-Type', 'application/json')

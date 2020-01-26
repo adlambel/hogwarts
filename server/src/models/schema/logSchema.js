@@ -15,8 +15,8 @@ export const logSchema = new EntitySchema({
       type: 'varchar',
       nullable: false
     },
-    professor: {
-      type: 'int',
+    profname: {
+      type: 'varchar',
       nullable: false
     },
     date: {

@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removePoints } from '../actions'
-
-import ClearIcon from '@material-ui/icons/Clear'
+import Moment from 'moment';
 import iconGryffondor from '../images/icons/Icone_de_Gryffondor.png'
 import iconPoufsouffle from '../images/icons/Icone_de_Poufsouffle.png'
 import iconSerdaigle from '../images/icons/Icone_de_Serdaigle.png'
@@ -13,16 +11,16 @@ const TablePoints = ({ dispatch, points }) => {
 
     const getImgHouse = (houseName) => {
         switch (houseName) {
-            case 'Gryffondor':
+            case 'Gryffindor':
               return <img src={iconGryffondor} className="houseIcon" alt="icon" />
         
-            case 'Poufsouffle':
+            case 'Hufflepuff':
             return <img src={iconPoufsouffle} className="houseIcon" alt="icon" />
         
-            case 'Serdaigle':
+            case 'Ravenclaw':
                 return <img src={iconSerdaigle} className="houseIcon" alt="icon" />
             
-            case 'Serpentard':
+            case 'Slytherin':
                 return <img src={iconSerpentard} className="houseIcon" alt="icon" />
                 
             default:
@@ -30,43 +28,25 @@ const TablePoints = ({ dispatch, points }) => {
           }  
     }
 
-    const activeColor = (active) =>{
-        if(!active){
-            return "#D3D3D3"
-        }
-        else{
-            return 
-        }
-    }
-
-    const removeIcon = (active, id) =>{
-        if(active){
-            return <ClearIcon style={{color: "#707070", fontSize: "40px", cursor: "pointer"}} onClick={() => { dispatch(removePoints(id))}}/>
-        }
-        else{
-            return 
-        }
-    }
-
     return (
         <div className="tableStudentsProfessors column">
-            <div className="harryFontFamily">ADD POINTS</div>
+            <div className="harryFontFamily">HISTORICAL</div>
             <table>
                 <thead>
                     <tr>
                         <th>House</th>
                         <th>Professor</th>
                         <th>Points</th>
-                        <th></th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {points.map(point => (
-                        <tr key={point.id} style={{ color: activeColor(point.active) }}>
+                        <tr key={point.id}>
                             <td>{getImgHouse(point.house)}</td>
-                            <td>{point.professor}</td>
-                            <td>{point.points}</td>
-                            <td>{removeIcon(point.active, point.id)}</td>
+                            <td>{point.profname}</td>
+                            <td>{point.value}</td>
+                            <td>{Moment(point.date).format('DD/MM/YYYY')}</td>
                         </tr>
                     ))}
                 </tbody>

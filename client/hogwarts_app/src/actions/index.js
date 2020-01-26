@@ -1,50 +1,107 @@
-import HttpService from '../service/httpService'
+export const inits = () => (
+    {
+        type: 'INITS',
+        payload: {
+            request: {
+                url: '/student'
+            }
+        },
+    })
 
-export const init = () => ({
-  type: 'INIT',
-  payloadScores: HttpService.getScores(),
-  payloadProfessors: HttpService.getProfessors(),
-  payloadStudents: HttpService.getStudents() // donc payload est une promesse gérée dans points.js
-})
+export const initp = () => (
+    {
+        type: 'INITP',
+        payload: {
+            request: {
+                url: '/professor'
+            }
+        },
+    })
 
-export const addStudent = (house, firstname, lastname, gender) => ({
-  type: 'ADD_STUDENT',
-  payload: HttpService.addStudent(house, firstname, lastname, gender),
-  house,
-  firstname,
-  lastname,
-  gender
-})
+export const initl = () => (
+    {
+        type: 'INITL',
+        payload: {
+            request: {
+                url: '/logs'
+            }
+        },
+    })
 
-export const removeStudent = id => ({
-  type: 'REMOVE_STUDENT',
-  payload: HttpService.deleteProfessor(id),
-  id
-})
+export const addStudent = (house, firstname, lastname, gender) => (
+    {
+        type: 'ADD_STUDENT',
+        payload: {
+            request: {
+                method: 'POST',
+                url: '/student',
+                params: {
+                    house: house,
+                    firstname: firstname,
+                    lastname: lastname,
+                    gender: gender
+                }
+            }
+        },
+    })
 
-export const addProfessor = (firstname, lastname, gender) => ({
-  type: 'ADD_PROFESSOR',
-  payload: HttpService.addProfessor(firstname, lastname, gender),
-  firstname,
-  lastname,
-  gender
-})
+export const addProfessor = (firstname, lastname, gender) => (
+    {
+        type: 'ADD_PROFESSOR',
+        payload: {
+            request: {
+                method: 'POST',
+                url: '/professor',
+                params: {
+                    firstname: firstname,
+                    lastname: lastname,
+                    gender: gender
+                }
+            }
+        },
+    })
 
-export const removeProfessor = id => ({
-  type: 'REMOVE_PROFESSOR',
-  payload: HttpService.deleteProfessor(id),
-  id
-})
+export const addPoints = (house, profname, value) => (
+    {
+        type: 'ADD_POINTS',
+        payload: {
+            request: {
+                method: 'POST',
+                url: '/scores',
+                params: {
+                    profname: profname,
+                    house: house,
+                    value: value
+                }
+            }
+        },
+    })
 
-export const addPoints = (house, professor, points) => ({
-  type: 'ADD_POINTS',
-  payload: HttpService.addScore(professor, house, points),
-  house,
-  professor,
-  points
-})
+export const removeStudent = (id) => (
+    {
+        type: 'REMOVE_STUDENT',
+        payload: {
+            request: {
+                method: 'DELETE',
+                url: '/student',
+                params: {
+                    id: id
+                }
+            }
+        },
+    })
 
-export const removePoints = id => ({
-  type: 'REMOVE_POINTS',
-  id
-})
+export const removeProfessor = (id) => (
+    {
+        type: 'REMOVE_PROFESSOR',
+        payload: {
+            request: {
+                method: 'DELETE',
+                url: '/professor',
+                params: {
+                    id: id
+                }
+            }
+        },
+    })
+
