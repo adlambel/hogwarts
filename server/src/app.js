@@ -24,8 +24,9 @@ app.get('/', async (_, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
+const dal = new Dal()
+
 app.get('/professor', async (_, res) => {
-  const dal = new Dal()
   const data = await dal.getProfessor()
   res
     .status(200)
@@ -34,7 +35,6 @@ app.get('/professor', async (_, res) => {
 })
 
 app.get('/student', async (_, res) => {
-  const dal = new Dal()
   const data = await dal.getStudent()
   res
     .status(200)
@@ -44,7 +44,6 @@ app.get('/student', async (_, res) => {
 
 app.post('/professor', async (req, res) => {
   const { firstname, lastname, gender } = req.query
-  const dal = new Dal()
   const newData = await dal.addProfessor(firstname, lastname, gender)
   res
     .status(200)
@@ -54,7 +53,6 @@ app.post('/professor', async (req, res) => {
 
 app.post('/student', async (req, res) => {
   const { house, firstname, lastname, gender } = req.query
-  const dal = new Dal()
   const newData = await dal.addStudent(house, firstname, lastname, gender)
   res
     .status(200)
@@ -64,7 +62,6 @@ app.post('/student', async (req, res) => {
 
 app.delete('/professor', async (req, res) => {
   const id = req.query;
-  const dal = new Dal()
   const newData = await dal.removeProfessor(id)
   res
     .status(200)
@@ -74,7 +71,6 @@ app.delete('/professor', async (req, res) => {
 
 app.delete('/student', async (req, res) => {
   const id = req.query;
-  const dal = new Dal()
   const newData = await dal.removeStudent(id)
   res
     .status(200)
@@ -83,7 +79,6 @@ app.delete('/student', async (req, res) => {
 })
 
 app.get('/logs', async (_, res) => {
-  const dal = new Dal()
   const data = await dal.getLogs()
   res
     .status(200)
@@ -93,7 +88,6 @@ app.get('/logs', async (_, res) => {
 
 
 app.get('/scores', async (_, res) => {
-  const dal = new Dal()
   const data = await dal.getScores()
   res
     .status(200)
@@ -102,7 +96,6 @@ app.get('/scores', async (_, res) => {
 })
 
 app.post('/scores', async (req, res) => {
-  const dal = new Dal()
   const {profname, house, value } = req.query
   const data = await dal.addScore(profname, house, value );
   res
