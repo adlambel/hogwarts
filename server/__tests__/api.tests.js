@@ -4,8 +4,14 @@ import app from '../app'
 // How to mock an exported class
 // These inner mocks must always start with 'mock'
 // or else jest will throw an error
-const mockGetProfessor = jest.fn()
-const mockAdd = jest.fn()
+const mockGetProfessor = jest.fn();
+const mockaddProfessor = jest.fn();
+const mockremoveProfessor = jest.fn();
+const mockaddStudent = jest.fn();
+const mockremoveStudent = jest.fn();
+const mockgetScores = jest.fn();
+const mockaddScore = jest.fn();
+
 jest.mock('../typeOrmDal', () => {
   return jest.fn().mockImplementation(() => ({
     getProfessor: mockGetProfessor,
@@ -22,12 +28,12 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('Async action', () => {
+describe('Professor', () => {
   it('GET', async () => {
-    const fakeResponse = [{ id: 1, name: 'name', gender: 'M' }]
-    mockGetData.mockReturnValue(fakeResponse)
+    const fakeResponse = [{"id": 1, "firstname": "Albus", "lastname": "Dumbledore", "gender": "Male" },
+    mockGetProfessor.mockReturnValue(fakeResponse)
 
-    const response = await request(app).get('/')
+    const response = await request(app).get('/professor')
 
     expect(response.status).toBe(200)
     expect(response.body).toEqual(fakeResponse)
@@ -49,19 +55,6 @@ describe('Async action', () => {
   })
 })
 
-  async getProfessor() {
-  async getStudent() {
-
-  async addProfessor(firstname, lastname, age) {
-
-  async removeProfessor(id) {
-
-  async addStudent(house, firstname, lastname, age) 
-  async removeStudent(id) {
-  
-  async getLogs() {
-  async getScores() {
-  async addScore( professor, house, value ) {
 }
 
 export default TypeOrmDal

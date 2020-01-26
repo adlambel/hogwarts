@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { removeProfessor } from '../actions'
+import PopupAddProfessor from './PopupAddProfessor.js'
+
 
 import ClearIcon from '@material-ui/icons/Clear'
 
@@ -9,7 +11,8 @@ const TableProfessors = ({ dispatch, professors }) => {
 
     return (
         <div className="tableStudentsProfessors column">
-            <div className="harryFontFamily">PROFESSORS</div>
+            <div className="harryFontFamily">PROFESSORS </div>
+            <PopupAddProfessor/>
             <table>
                 <thead>
                     <tr>

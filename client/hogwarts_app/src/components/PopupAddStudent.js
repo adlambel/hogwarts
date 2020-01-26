@@ -21,6 +21,10 @@ const PopupAddStudent = ({dispatch}) => {
 
     const handleClose = () => {
         setOpen(false);
+        setGender("");
+        setFirstName("");
+        setHouse("");
+        setLastName("");
     };
 
     const houses = [
@@ -39,6 +43,8 @@ const PopupAddStudent = ({dispatch}) => {
     ];
 
     const genders = [
+        "Male",
+        "Female",
         "Agender",
         "Androgyne",
         "Androgynous",
@@ -133,8 +139,8 @@ const PopupAddStudent = ({dispatch}) => {
     };
 
     return (
-        <div>
-            <div className="center"><AddBoxIcon onClick={handleClickOpen} variant="extended" aria-label="add"
+        <div className="addbtn-container">
+            <div className="addbtn"><AddBoxIcon onClick={handleClickOpen} variant="extended" aria-label="add"
                                                 style={{color: "#242424", fontSize: "80px", cursor: "pointer"}}/></div>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title"><span className="formularTitle harryFontFamily">ADD A STUDENT</span></DialogTitle>

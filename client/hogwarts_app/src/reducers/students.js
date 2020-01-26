@@ -10,7 +10,7 @@ const students = (state = [], action) => {
             break;
 
         case 'ADD_STUDENT_SUCCESS':
-            return [...state, action.payload.data]
+            return [ action.payload.data, ...state]
 
         case 'ADD_STUDENT_FAIL':
             console.log("error add student")

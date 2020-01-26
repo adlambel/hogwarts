@@ -21,10 +21,15 @@ const PopupAddProfessor = ({dispatch}) => {
 
     const handleClose = () => {
         setOpen(false);
+        setGender("");
+        setFirstName("");
+        setLastName("");
     };
 
 
     const genders = [
+        "Male",
+        "Female",
         "Agender",
         "Androgyne",
         "Androgynous",
@@ -116,7 +121,7 @@ const PopupAddProfessor = ({dispatch}) => {
 
     return (
         <div>
-            <div className="center"><AddBoxIcon onClick={handleClickOpen} variant="extended" aria-label="add"
+            <div className="addbtn"><AddBoxIcon onClick={handleClickOpen} variant="extended" aria-label="add"
                                                 style={{color: "#242424", fontSize: "80px", cursor: "pointer"}}/></div>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title"><span

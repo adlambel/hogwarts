@@ -117,6 +117,7 @@ const FormularPoints = ({ dispatch, professors }) => {
                   label="Points"
                   variant="outlined"
                   value={points}
+                  type='number'
                   onChange={handleChangePoints}
                     />
 

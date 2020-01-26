@@ -9,7 +9,7 @@ const points = (state = [], action) => {
       break;
 
     case 'ADD_POINTS_SUCCESS':
-      return [...state, action.payload.data]
+      return [action.payload.data, ...state]
 
     case 'ADD_POINTS_FAIL':
       console.log('error add points')
