@@ -3,6 +3,7 @@ const professors = (state = [], action) => {
     switch (action.type) {
 
         case 'INITP_SUCCESS':
+            console.log(action.payload.data)
             return action.payload.data
 
         case 'INITP_FAIL':
